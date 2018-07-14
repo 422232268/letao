@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>一级分类管理</title>
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="lib/nprogress/nprogress.css">
@@ -20,7 +20,8 @@
             <a href="index.html">黑马23期</a>
         </div>
         <div class="user">
-            <img src="images/default.jpg" alt="">
+            <img src="iamges/default.jpg" alt="">
+
             <p>超级管理员</p>
         </div>
         <div class="nav">
@@ -67,14 +68,31 @@
                 <li>
                     <a href="#">系统管理</a>
                 </li>
-                <li class="active">首页</li>
+                <li class="active">一级分类管理</li>
             </ol>
 
 
             <!-- 每个页面具体的内容 -->
             <div class="lt_content">
-                <div class="charts_left pull-left">11</div>
-                <div class="charts_right pull-right">22</div>
+
+                <button class="btn btn-default btn_add mb_20">添加分类</button>
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="20%">序号</th>
+                            <th width="80%">分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 挖个坑 -->
+                    </tbody>
+                </table>
+
+                <!-- 分页 -->
+                <div class="text-right">
+                    <ul id="paginator"></ul>
+                </div>
             </div>
         </div>
     </div>
@@ -105,15 +123,51 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+    <!-- 添加一级分类模态框 -->
+    <script type="text/html" id="tpl">
+        {{each rows v i}}
+        <tr>
+            <td>{{ (page-1)*size + i + 1 }}</td>
+            <td>{{v.categoryName}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <div class="modal fade" tabindex="-1" id="addModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <!-- form必须要包裹住submit按钮 -->
+                <form>
+                    <div class="modal-body">
+                        <!-- 注意：结构还是需要满足bootstrap的风格 -->
 
+                        <div class="form-group">
+                            <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类的名称">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">添加</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
-    <script src="lib/echarts/echarts.min.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/first.js"></script>
 
 </body>
 
