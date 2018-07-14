@@ -87,7 +87,7 @@ body.active {
     border-left: 70px;
 }
 
-.lt_aside .nav a .active {
+.lt_aside .nav a.active {
     background-color: #1d1f21;
     border-left: 3px solid #337ab7;
     box-sizing: border-box;
